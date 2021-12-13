@@ -36,15 +36,11 @@ public class OrderDAO {
                     }
                     //maak een nieuwe order aan
                     order = new Order(
-                            rs.getLong(1)
-                            //rs.getDate(2)
+                            rs.getLong(1),
+                            rs.getString(2)
                     );
                     //maak de OrderLineList leeg/maak een aan
                     OrderLineList = new ArrayList<>();
-                }
-                else{
-                    order.setId(rs.getLong(1));
-                    //order.setCreationDate(rs.getDate(2));
                 }
 
                 OrderLineList.add(new OrderLine(
