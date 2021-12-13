@@ -6,19 +6,19 @@ import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.core.Response;
 
 @Path("/order")
 @Consumes("application/json")
-@Produces("application/json")
 public class OrderController {
 
     @Inject
     OrderService orderService;
 
     @GET
-    public String getAllOrders(){
-        return orderService.getAllOrders();
+    @Path("/getAll")
+    public Response getAllOrders(){
+        return Response.ok().entity(orderService.getAllOrders()).build();
     }
 
 }
