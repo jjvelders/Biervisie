@@ -74,7 +74,7 @@ public class OrderDAO {
         Statement st = null;
         try {
             st = conn.createStatement();
-            ResultSet rs = st.executeQuery("select top 1 * from customer_order group by creation_date ");
+            ResultSet rs = st.executeQuery("select * from customer_order order by creation_date limit 1");
 
             while(rs.next()){
                 order = new Order(
