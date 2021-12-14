@@ -21,4 +21,7 @@ public class OrderController {
         return Response.ok().entity(orderService.getAllOrders()).build();
     }
 
+    @Path("/getNewest")
+    public Response getNewestOrder(){ return Response.ok().entity(orderService.getNewest()).build(); }
+
 }

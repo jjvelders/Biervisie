@@ -14,4 +14,6 @@ public class OrderService {
     public List<Order> getAllOrders(){
         return orderDAO.getAllOrders();
     }
+
+    public Order getNewest(){ return orderDAO.newestOrder(); }
 }

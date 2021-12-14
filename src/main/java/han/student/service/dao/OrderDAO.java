@@ -67,4 +67,26 @@ public class OrderDAO {
 
         return orders;
     }
+    public Order newestOrder(){
+        Order order = new Order();
+
+        Connection conn = dbGetter.getCon();
+        Statement st = null;
+        try {
+            st = conn.createStatement();
+            ResultSet rs = st.executeQuery("select top 1 * from customer_order group by creation_date ");
+
+            while(rs.next()){
+                order = new Order(
+                        rs.getLong(1),
+                        rs.getString(2)
+                );
+            }
+
+            } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return order;
+    }
 }
