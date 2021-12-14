@@ -64,7 +64,7 @@ public class OrderDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
+// kkr jordy
         return orders;
     }
     public Order newestOrder(){
